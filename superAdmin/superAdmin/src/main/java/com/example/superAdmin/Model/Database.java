@@ -4,7 +4,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 @Data
-public class Datatabase {
+public class Database {
     private int id;
     private String host;
     private int port;
