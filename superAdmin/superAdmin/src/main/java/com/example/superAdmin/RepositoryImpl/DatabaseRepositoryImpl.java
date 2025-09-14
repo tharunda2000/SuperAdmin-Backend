@@ -39,8 +39,12 @@ public class DatabaseRepositoryImpl implements DatabaseRepository {
         return jdbcTemplate.query(selectAllQuery,new BeanPropertyRowMapper<>(Database.class));
     }
 
+    @Override
+    public Database getDatabaseById(int id){
+        String selectByIdQuery = "SELECT id, host, port, database_name AS databaseName, username, password, created_at AS createdAt,updated_at AS updatedAt FROM databases WHERE id=?";
+        return jdbcTemplate.queryForObject(selectByIdQuery,BeanPropertyRowMapper.newInstance(Database.class),id);
+    }
 
-    Database getDatabaseById(int id);
     void updateDatabase(Database database);
     void deleteDatabaseById(int id);
 
