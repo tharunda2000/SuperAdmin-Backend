@@ -3,6 +3,7 @@ package com.example.superAdmin.RepositoryImpl;
 import com.example.superAdmin.Model.Database;
 import com.example.superAdmin.Repository.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -32,7 +33,13 @@ public class DatabaseRepositoryImpl implements DatabaseRepository {
         );
     }
 
-    List<Database> getAllDatabases();
+    @Override
+    public List<Database> getAllDatabases(){
+        String selectAllQuery = "SELECT id, host, port, database_name AS databaseName, username, password, created_at AS createdAt,updated_at AS updatedAt FROM databases";
+        return jdbcTemplate.query(selectAllQuery,new BeanPropertyRowMapper<>(Database.class));
+    }
+
+
     Database getDatabaseById(int id);
     void updateDatabase(Database database);
     void deleteDatabaseById(int id);
