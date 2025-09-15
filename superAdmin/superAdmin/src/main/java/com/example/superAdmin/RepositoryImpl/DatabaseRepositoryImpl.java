@@ -60,7 +60,8 @@ public class DatabaseRepositoryImpl implements DatabaseRepository {
 
     @Override
     public void deleteDatabaseById(int id){
-
+        String deleteByIdQuery ="DELETE FROM databases WHERE id=?";
+        jdbcTemplate.update(deleteByIdQuery,id);
     }
 }
 
