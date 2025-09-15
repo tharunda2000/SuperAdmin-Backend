@@ -45,7 +45,25 @@ public class DatabaseRepositoryImpl implements DatabaseRepository {
         return jdbcTemplate.queryForObject(selectByIdQuery,BeanPropertyRowMapper.newInstance(Database.class),id);
     }
 
-    void updateDatabase(Database database);
-    void deleteDatabaseById(int id);
+    @Override
+    public void updateDatabase(Database database){
+        String updateQuery = "UPDATE databases SET  host=?, port=?, database_name=?, username=?, password=?, updated_at WHERE   id=?";
+        jdbcTemplate.update(updateQuery,
+                database.getHost(),
+                database.getPort(),
+                database.getDatabaseName(),
+                database.getUsername(),
+                database.getPassword(),
+                database.getUpdatedAt()
+        );
+    }
 
+    @Override
+    public void deleteDatabaseById(int id){
+
+    }
 }
+
+
+
+
