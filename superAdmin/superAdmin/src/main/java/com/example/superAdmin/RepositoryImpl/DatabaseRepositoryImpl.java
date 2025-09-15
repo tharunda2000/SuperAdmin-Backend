@@ -54,7 +54,8 @@ public class DatabaseRepositoryImpl implements DatabaseRepository {
                 database.getDatabaseName(),
                 database.getUsername(),
                 database.getPassword(),
-                database.getUpdatedAt()
+                database.getUpdatedAt(),
+                database.getId()
         );
     }
 

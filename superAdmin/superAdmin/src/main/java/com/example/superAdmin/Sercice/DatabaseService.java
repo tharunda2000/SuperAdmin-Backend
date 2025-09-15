@@ -44,6 +44,7 @@ public class DatabaseService {
         return response;
     }
 
+    //Add a database
     public void addDatabase(DatabaseRequestDTO reqDTO){
         dataRepo.addDatabase(mapToEntity(reqDTO));
     }
@@ -59,8 +60,10 @@ public class DatabaseService {
         return mapToResponse(dataRepo.getDatabaseById(id));
     }
 
-    public void updateDatabase(DatabaseRequestDTO req){
-        dataRepo.updateDatabase(mapToEntity(req));
+    public void updateDatabase(DatabaseRequestDTO req,int id){
+        Database data = mapToEntity(req);
+        data.setId(id);
+        dataRepo.updateDatabase(data);
     }
 
     public void deleteDatabaseById(int id){
