@@ -4,6 +4,8 @@ import com.example.superAdmin.DTO.DatabaseRequestDTO;
 import com.example.superAdmin.DTO.DatabaseResponseDTO;
 import com.example.superAdmin.Sercice.DatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +19,9 @@ public class DatabaseController {
     DatabaseService service;
 
     @PostMapping
-    public void addDatabase(@RequestBody DatabaseRequestDTO reqDTO){
+    public ResponseEntity<String> addDatabase(@RequestBody DatabaseRequestDTO reqDTO){
         service.addDatabase(reqDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Database settings added Successfully");
     }
 
     @GetMapping
@@ -32,12 +35,14 @@ public class DatabaseController {
     }
 
     @PutMapping("/{id}")
-    public void updateDatabase(@RequestBody DatabaseRequestDTO req,@PathVariable int id){
+    public ResponseEntity<String> updateDatabase(@RequestBody DatabaseRequestDTO req,@PathVariable int id){
         service.updateDatabase(req,id);
+        return ResponseEntity.status(HttpStatus.OK).body("Database Updated Successfully");
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDatabaseById(@PathVariable int id){
+    public ResponseEntity<String> deleteDatabaseById(@PathVariable int id){
         service.deleteDatabaseById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Database Deleted Successfully");
     }
 }
