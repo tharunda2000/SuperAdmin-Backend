@@ -49,6 +49,7 @@ public class DatabaseService {
         dataRepo.addDatabase(mapToEntity(reqDTO));
     }
 
+    //Get all databases
     public List<DatabaseResponseDTO> getAllDatabases(){
         return dataRepo.getAllDatabases()
                 .stream()
@@ -56,16 +57,19 @@ public class DatabaseService {
                 .collect(Collectors.toList());
     }
 
+    //Get database by id
     public DatabaseResponseDTO getDatabaseById(int id){
         return mapToResponse(dataRepo.getDatabaseById(id));
     }
 
+    //Update database
     public void updateDatabase(DatabaseRequestDTO req,int id){
         Database data = mapToEntity(req);
         data.setId(id);
         dataRepo.updateDatabase(data);
     }
 
+    //Delete database
     public void deleteDatabaseById(int id){
         dataRepo.deleteDatabaseById(id);
     }
