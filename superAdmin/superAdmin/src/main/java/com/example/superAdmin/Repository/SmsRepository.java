@@ -1,7 +1,6 @@
 package com.example.superAdmin.Repository;
 
 
-import com.example.superAdmin.Model.Database;
 import com.example.superAdmin.Model.Sms;
 
 import java.util.List;

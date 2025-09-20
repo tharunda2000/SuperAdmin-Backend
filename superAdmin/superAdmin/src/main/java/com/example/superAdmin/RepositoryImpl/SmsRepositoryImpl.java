@@ -2,6 +2,7 @@ package com.example.superAdmin.RepositoryImpl;
 
 import com.example.superAdmin.Model.Database;
 import com.example.superAdmin.Model.Sms;
+import com.example.superAdmin.Repository.SmsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -12,7 +13,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Repository
-public class SmsRepositoryImpl {
+public class SmsRepositoryImpl implements SmsRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

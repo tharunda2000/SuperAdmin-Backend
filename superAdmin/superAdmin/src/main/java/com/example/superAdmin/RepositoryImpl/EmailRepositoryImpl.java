@@ -40,7 +40,7 @@ public class EmailRepositoryImpl implements EmailRepository {
     @Override
     public List<Email> getAllEmails(){
         try{
-            String selectAllQuery = "SELECT id, smtp_host AS smtpHost, smtp_port AS smtpPort, username, password,from_address AS fromAddress created_at AS createdAt,updated_at AS updatedAt FROM `email`";
+            String selectAllQuery = "SELECT id, smtp_host AS smtpHost, smtp_port AS smtpPort, username, password,from_address AS fromAddress, created_at AS createdAt,updated_at AS updatedAt FROM `email`";
             return jdbcTemplate.query(selectAllQuery,new BeanPropertyRowMapper<>(Email.class));
         }catch(Exception e){
             throw new RuntimeException("Failed to fetch Email settings: " + e.getMessage(), e);
@@ -50,7 +50,7 @@ public class EmailRepositoryImpl implements EmailRepository {
     @Override
     public Email getEmailById(int id){
         try{
-            String selectByIdQuery = "SELECT id, smtp_host AS smtpHost, smtp_port AS smtpPort, username, password,frpm_address AS fromAddress created_at AS createdAt,updated_at AS updatedAt FROM `email` WHERE id=?";
+            String selectByIdQuery = "SELECT id, smtp_host AS smtpHost, smtp_port AS smtpPort, username, password,from_address AS fromAddress, created_at AS createdAt,updated_at AS updatedAt FROM `email` WHERE id=?";
             return jdbcTemplate.queryForObject(selectByIdQuery,BeanPropertyRowMapper.newInstance(Email.class),id);
         }catch(EmptyResultDataAccessException e){
             throw new RuntimeException("Email settings with ID " + id + " not found");
