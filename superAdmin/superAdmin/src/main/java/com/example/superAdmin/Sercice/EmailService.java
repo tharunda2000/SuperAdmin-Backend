@@ -1,11 +1,8 @@
 package com.example.superAdmin.Sercice;
 
-import com.example.superAdmin.DTO.DatabaseRequestDTO;
-import com.example.superAdmin.DTO.DatabaseResponseDTO;
 
 import com.example.superAdmin.DTO.EmailRequestDTO;
 import com.example.superAdmin.DTO.EmailResponseDTO;
-import com.example.superAdmin.Model.Database;
 import com.example.superAdmin.Model.Email;
 import com.example.superAdmin.Repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;

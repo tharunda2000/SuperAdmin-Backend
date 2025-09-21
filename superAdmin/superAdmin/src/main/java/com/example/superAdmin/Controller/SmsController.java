@@ -1,10 +1,7 @@
 package com.example.superAdmin.Controller;
 
-import com.example.superAdmin.DTO.DatabaseRequestDTO;
-import com.example.superAdmin.DTO.DatabaseResponseDTO;
 import com.example.superAdmin.DTO.SmsRequestDTO;
 import com.example.superAdmin.DTO.SmsResponseDTO;
-import com.example.superAdmin.Model.Sms;
 import com.example.superAdmin.Sercice.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

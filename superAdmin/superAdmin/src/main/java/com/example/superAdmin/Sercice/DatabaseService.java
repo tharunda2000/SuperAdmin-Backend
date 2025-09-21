@@ -5,10 +5,9 @@ import com.example.superAdmin.DTO.DatabaseResponseDTO;
 import com.example.superAdmin.Model.Database;
 import com.example.superAdmin.Repository.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

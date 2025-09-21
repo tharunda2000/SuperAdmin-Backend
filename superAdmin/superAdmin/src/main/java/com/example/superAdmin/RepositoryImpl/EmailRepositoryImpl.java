@@ -1,6 +1,6 @@
 package com.example.superAdmin.RepositoryImpl;
 
-import com.example.superAdmin.Model.Database;
+
 import com.example.superAdmin.Model.Email;
 import com.example.superAdmin.Repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
